@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class TodosState extends State<Todos> {
   final _todos = <String>[
     'render shadows',
@@ -14,11 +13,40 @@ class TodosState extends State<Todos> {
     'add more todos',
     'change table location',
   ];
+
+  final myController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    myController.addListener(_addTodo);
+  }
+
+  @override
+  void dispose() {
+    myController.dispose();
+    super.dispose();
+  }
+
+  void _addTodo() {
+    setState(() {
+      _todos: _todos.add(myController.text);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(child: Column(
-      children: <Widget>[
-        _buildTodos(),
+    return Container(
+        child: Column(
+          children: <Widget>[
+            TextField(
+              controller: TextEditingController(),
+            ),
+            FlatButton(
+              child: Text('Add new'),
+              onPressed: _addTodo,
+            ),
+            _buildTodos(),
       ],
     ));
   }

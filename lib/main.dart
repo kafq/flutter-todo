@@ -57,17 +57,6 @@ class Filter extends StatelessWidget {
         children: [
           Label(count: 12, text: 'all'),
           Label(count: 2, text: 'random'),
-          Spacer(),
-          FlatButton(
-            child: Text('add new'),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => AddNewRoute()),
-              );
-            },
-          ),
         ],
       ),
     );
