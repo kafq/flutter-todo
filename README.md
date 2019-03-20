@@ -54,7 +54,7 @@ Flutter rendering is *not* nice, because:
 
 As the programming language Flutter uses Dart, which is a compiled Object Oriented language. It gets compiled into native code, this way bypassing bridging. This way the application has better performance. Can confirm that animations do look smooth and application renders without any freezes.
 
-Benefits of using Dart are described in this Hackernoon [article].(https://hackernoon.com/why-flutter-uses-dart-dd635a054ebf) The ones that do make difference in my opinion are: garbage collector designed to quickly create and destroy objects at almost no cost. Also it is strongly typed, has nice autocomplete support and is overall easy to learn. However, it is still an object oriented language, which is not in everyone's taste. Additionally, there is no alternative to XML/JSX, so the markup code feels like React without JSX
+Benefits of using Dart are described in this Hackernoon [article](https://hackernoon.com/why-flutter-uses-dart-dd635a054ebf). The ones that do make difference in my opinion are: garbage collector designed to quickly create and destroy objects at almost no cost. Also it is strongly typed, has nice autocomplete support and is overall easy to learn. However, it is still an object oriented language, which is not in everyone's taste. Additionally, there is no alternative to XML/JSX, so the markup code feels like React without JSX
 
 ## 3. Editors support
 
@@ -80,6 +80,14 @@ Flutter is advertised as a way to create 'delightful apps', which is totally tru
 
 Apart from the shared element transition, everything else can be animated. There are staggered animations, an ability to override screen transitions, custom effects and much more.
 
-## Navigation
+## 5. Navigation
 
 Flutter has built-in navigation, which is a fantastic feature for people coming from React Native. Flutter uses the same approach of routes, but there are no strict requirements for organizing the routing pattern and there is no boilerplate code in contrast to React Native's several navigatino libraries. Navigation transitions by default depend on the system they are used on
+
+Navigation can be done using `pushNamed`, this way it could replicate the more familiar routing and navigation setup from react-router, routes could be isolated as usual. Stacks are not mandatory in Flutter, which allows flexibility in programmatic approach to navigation, e.g. navigating to different tab after a certain action
+
+# Architecture
+
+The picture below displays how Flutter is organized technically. The point is that main interaction happens within upper layers. Lower ones are responsible for rendering. As mentioned above, it means that Dart does not use native modules, but shows you mocks made by skia
+
+![](images/debug-1.png)
