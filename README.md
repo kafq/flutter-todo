@@ -90,4 +90,4 @@ Navigation can be done using `pushNamed`, this way it could replicate the more f
 
 The picture below displays how Flutter is organized technically. The point is that main interaction happens within upper layers. Lower ones are responsible for rendering. As mentioned above, it means that Dart does not use native modules, but shows you mocks made by skia
 
-![](images/debug-1.png)
+![](images/flutter-architecture.png)
